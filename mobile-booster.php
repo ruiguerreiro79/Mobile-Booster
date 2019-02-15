@@ -44,12 +44,13 @@ if ( ! class_exists( 'WP_Mobile_Booster' ) ) {
 			$this->mb_fs->add_action( 'after_uninstall', array( $this, 'mb_fs_uninstall_cleanup' ) );
 			// Include Required files.
 			$this->include_required_files();
-			// Instanciate the Mobile Booster Options.
-			new WP_Mobile_Booster_options();
 			// Instanciate the Mobile Booster Core Functions.
 			$this->mob_booster_core = new WP_Mobile_Booster_Core();
+			// Instanciate the Mobile Booster Options.
+			$this->mob_booster_options = new WP_Mobile_Booster_options();
+
 			// Add the Mobile Booster customizer settings.
-			add_action( 'customize_register', array( $this->mob_booster_core, 'mobile_booster_customizer_settings' ) );
+			add_action( 'customize_register', array( $this->mob_booster_options, 'mobile_booster_customizer_settings' ) );
 
 			// Load frontend assets.
 			if ( ! is_admin() ) {
