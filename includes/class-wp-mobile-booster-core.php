@@ -3,6 +3,7 @@
 if ( ! class_exists( 'WP_Mobile_Booster' ) ) {
 	die;
 }
+
 class WP_Mobile_Booster_Core {
 	public function __construct() {
 	}
@@ -11,21 +12,44 @@ class WP_Mobile_Booster_Core {
 	 * Frontend Scripts.
 	 */
 	public function frontend_enqueue_scripts() {
-			wp_enqueue_style( 'mobileboostercss', plugins_url( 'css/mobile-booster.css', __FILE__ ) );
-			wp_register_script( 'mobileboosterjs', plugins_url( 'js/mobile-booster.js', __FILE__ ), array( 'jquery' ) );
-			wp_enqueue_script( 'mobileboosterjs' );
 
-			/* Enqueue Quicklink from Google Chromelabs */ 
+			wp_enqueue_script( 'lazyload', 'https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js', __FILE__, null, true );
+			wp_enqueue_style( 'mobileboostercss', plugins_url( 'css/mobile-booster.css', __FILE__ ) );
+			wp_enqueue_script( 'mobileboosterjs', plugins_url( 'js/mobile-booster.js', __FILE__ ), array( 'jquery' ), true );
+			wp_enqueue_script( 'mobileboosterlazyload', plugins_url( 'js/lazyestload.js', __FILE__ ), null , true );
+
+			/* Enqueue Quicklink from Google Chromelabs */
 			if ( 'enable' === get_option( 'mb_quicklink', 'enable' ) ) {
-				wp_register_script( 'mobilequicklinkjs', plugins_url( 'js/quicklink.umd.js', __FILE__ ), array( 'jquery' ) );
-				wp_enqueue_script( 'mobilequicklinkjs' );
+				wp_enqueue_script( 'mobilequicklinkjs', plugins_url( 'js/quicklink.umd.js', __FILE__ ), array( 'jquery' ), true );
 			}
 
 			// Filters.
 			add_filter( 'wp_head', array( $this, 'load_dynamic_css_style' ) );
-			add_filter( 'wp_footer', array( $this, 'load_quicklink' ) );
+			add_filter( 'wp_head', array( $this, 'load_quicklink' ) );
+			add_filter('wp_footer', array( $this, 'footer_lazyload' ), 10 );
 
 	}
+
+	/***
+	 * Footer Lazy Load.
+	 */	
+	public function footer_lazyload() {
+		echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>';
+		echo '
+	<script type="text/javascript">
+	
+	const observer = lozad(".lozad", {
+		rootMargin: "500px 0px",
+		threshold: 0.1,
+		load: function(el) {
+		  el.src = el.dataset.src;
+		},
+	  });
+	  observer.observe();
+	</script>
+	';
+	}
+
 
 	/***
 	 * Load dynamic css
@@ -48,6 +72,12 @@ class WP_Mobile_Booster_Core {
 				});
 			</script>
 		<?php
+	}
+
+	/***
+	 * Load Lazyload
+	 */
+	public function load_lazyload() { 
 	}
 
 	/***

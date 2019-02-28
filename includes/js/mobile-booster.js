@@ -12,6 +12,7 @@
 
    (function ($) {
       $( document ).ready( function($) {
+       
         if ( $( '.woocommerce-message' ).length > 0 ) {
           setTimeout(function(){ 
             $( '.woocommerce-message' ).addClass( 'mb-hide-in-mobile' );

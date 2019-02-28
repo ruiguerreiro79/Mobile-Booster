@@ -25,7 +25,7 @@ class WP_Mobile_Booster_options {
 	/**
 	 * Mobile Booster Admin Panel Content.
 	 */
-	public function mob_booster_options_page() { 
+	public function mob_booster_options_page() {
 		// Generate the redirect url.
 		$url = add_query_arg( array( 'autofocus[section]' => 'mobile_booster_section' ), admin_url( 'customize.php' ) );
 		?>
