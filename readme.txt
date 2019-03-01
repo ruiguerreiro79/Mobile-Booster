@@ -1,10 +1,10 @@
 === Mobile Booster ===
 Contributors: takanakui, freemius
 link: http://profiles.wordpress.org/takanakui
-Tags:   mobile, ecommerce, cart, product, responsive, woocommerce, conversion, header, footer
+Tags:   mobile, ecommerce, cart, responsive, woocommerce, lazyload, prefetch, quicklink
 Requires at least: 4.0
-Tested up to: 4.9
-Stable tag: 1.0
+Tested up to: 5.1
+Stable tag: 1.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 == Description == 
 Need some help with the mobile website experience? Need to keep your mobile visitors engaged? Need to increase your shop website sales conversion?
  
-Mobile Booster provides a better user mobile experience in specicif areas like the WooCommerce product page. The usage of smartphone, tablet to access websites is in high demand.
+Mobile Booster provides a better user mobile experience in specific areas like the WooCommerce product page. The usage of smartphone, tablet to access websites is in high demand.
 
 Se below the lisf of features of what our WordPress Mobile Booster can do for you.
 
