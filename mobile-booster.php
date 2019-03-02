@@ -103,8 +103,10 @@ if ( ! class_exists( 'WP_Mobile_Booster' ) ) {
 		 */
 		private function load_frontend_assets() {
 			if ( wp_is_mobile() ) {
-				// Enqueue Html to the Footer.
-				add_action( 'wp_footer', array( $this->mob_booster_core, 'load_mobile_booster_html_markup' ) );
+				if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+					// Enqueue Html to the Footer.
+					add_action( 'wp_footer', array( $this->mob_booster_core, 'load_mobile_booster_html_markup' ) );
+				}
 				// Frontend Scripts.
 				add_action( 'wp_enqueue_scripts', array( $this->mob_booster_core, 'frontend_enqueue_scripts' ) );
 			}

@@ -1,7 +1,7 @@
 === Mobile Booster ===
 Contributors: takanakui, freemius
 link: http://profiles.wordpress.org/takanakui
-Tags:   mobile, ecommerce, cart, responsive, woocommerce, lazyload, prefetch, quicklink
+Tags:   mobile, lazyload, prefetch, quicklink, ecommerce, cart, responsive, woocommerce,
 Requires at least: 4.0
 Tested up to: 5.1
 Stable tag: 1.1
@@ -16,6 +16,11 @@ Need some help with the mobile website experience? Need to keep your mobile visi
 Mobile Booster provides a better user mobile experience in specific areas like the WooCommerce product page. The usage of smartphone, tablet to access websites is in high demand.
 
 Se below the lisf of features of what our WordPress Mobile Booster can do for you.
+<ul>
+<li> Lazy Load Images in Mobile devices</li>
+<li> Prefetch Internal URLS to speed up the navigation (Quicklink from Chromelabs)</li>
+<li> Enhanced Add to Cart Buttons in WooCommerce Store</li>
+</ul>
 
 No coding knowledge is required. Works with all WordPress themes.
 
@@ -53,6 +58,12 @@ Not available at the moment
 Not available at the moment
  
 == Changelog ==  
+
+
+= 1.1 =
+* Lazy Load Images
+* Prefetch Internal URLS
+* SDK Security Fix
 
 = 1.0 =
 * Initial Version
